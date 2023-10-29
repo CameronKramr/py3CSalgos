@@ -1,8 +1,0 @@
-pyCSalgos
-pyCSalgos/ABS
-pyCSalgos/BP
-pyCSalgos/GAP
-pyCSalgos/NESTA
-pyCSalgos/OMP
-pyCSalgos/SL0
-pyCSalgos/TST

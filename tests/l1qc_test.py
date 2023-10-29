@@ -37,11 +37,11 @@ class BPresults(unittest.TestCase):
         err2 = numpy.linalg.norm(Y[:,i] - np.dot(A,Xr[:,i]))
         norm1 = numpy.linalg.norm(xr,1)
         norm2 = numpy.linalg.norm(Xr[:,i],1)
-        print 'diff = ',diff
-        print 'err1 = ',err1
-        print 'err2 = ',err2
-        print 'norm1 = ',norm1
-        print 'norm2 = ',norm2
+        print(('diff = ',diff))
+        print(('err1 = ',err1))
+        print(('err2 = ',err2))
+        print(('norm1 = ',norm1))
+        print(('norm2 = ',norm2))
         
         # It seems Matlab's linsolve and scipy solve are slightly different
         # Therefore make a more robust condition:

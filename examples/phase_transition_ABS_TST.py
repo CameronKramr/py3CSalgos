@@ -22,7 +22,7 @@ synth_solver = TwoStageThresholding(1e-8, maxiter=1000)
 def run_once():
 
     time_start = datetime.datetime.now()
-    print "Start time: " + time_start.strftime("%Y-%m-%d --- %H:%M:%S:%f")
+    print("Start time: " + time_start.strftime("%Y-%m-%d --- %H:%M:%S:%f"))
 
     solver = AnalysisBySynthesis(synth_solver)
 
@@ -35,14 +35,14 @@ def run_once():
     pt.plot(thresh=1e-6, show=False, basename=filebasename, saveexts=['pdf', 'png'])
 
     time_end = datetime.datetime.now()
-    print "End time:   " + time_end.strftime("%Y-%m-%d --- %H:%M:%S:%f")
-    print "Elapsed:    " + str((time_end - time_start).seconds) + " seconds"
-    print "------"
+    print("End time:   " + time_end.strftime("%Y-%m-%d --- %H:%M:%S:%f"))
+    print("Elapsed:    " + str((time_end - time_start).seconds) + " seconds")
+    print("------")
 
 def run_lambda_vals():
 
     time_start = datetime.datetime.now()
-    print "Start time: " + time_start.strftime("%Y-%m-%d --- %H:%M:%S:%f")
+    print("Start time: " + time_start.strftime("%Y-%m-%d --- %H:%M:%S:%f"))
 
     lambdas = numpy.logspace(-4,4,9)
     solvers = [AnalysisBySynthesis(synth_solver,
@@ -58,14 +58,14 @@ def run_lambda_vals():
     pt.plot_global_error(shape=(1,len(solvers)), thresh=1e-6, show=False, basename=filebasename+'_globalerr', saveexts=['pdf', 'png'])
 
     time_end = datetime.datetime.now()
-    print "End time:   " + time_end.strftime("%Y-%m-%d --- %H:%M:%S:%f")
-    print "Elapsed:    " + str((time_end - time_start).seconds) + " seconds"
-    print "------"
+    print("End time:   " + time_end.strftime("%Y-%m-%d --- %H:%M:%S:%f"))
+    print("Elapsed:    " + str((time_end - time_start).seconds) + " seconds")
+    print("------")
 
 def run_lambda_type():
 
     time_start = datetime.datetime.now()
-    print "Start time: " + time_start.strftime("%Y-%m-%d --- %H:%M:%S:%f")
+    print("Start time: " + time_start.strftime("%Y-%m-%d --- %H:%M:%S:%f"))
 
     types = ["value", "normalized_row"]
     solvers = [AnalysisBySynthesis(synth_solver,
@@ -82,14 +82,14 @@ def run_lambda_type():
     pt.plot_global_error(shape=(1,len(solvers)), thresh=1e-6, show=False, basename=filebasename+'_globalerr', saveexts=['pdf', 'png'])
 
     time_end = datetime.datetime.now()
-    print "End time:   " + time_end.strftime("%Y-%m-%d --- %H:%M:%S:%f")
-    print "Elapsed:    " + str((time_end - time_start).seconds) + " seconds"
-    print "------"
+    print("End time:   " + time_end.strftime("%Y-%m-%d --- %H:%M:%S:%f"))
+    print("Elapsed:    " + str((time_end - time_start).seconds) + " seconds")
+    print("------")
 
 def run_lambda_vals_normrow():
 
     time_start = datetime.datetime.now()
-    print "Start time: " + time_start.strftime("%Y-%m-%d --- %H:%M:%S:%f")
+    print("Start time: " + time_start.strftime("%Y-%m-%d --- %H:%M:%S:%f"))
 
     lambdas = numpy.logspace(-4,4,9)
     solvers = [AnalysisBySynthesis(synth_solver,
@@ -106,12 +106,12 @@ def run_lambda_vals_normrow():
     pt.plot_global_error(shape=(1,len(solvers)), thresh=1e-6, show=False, basename=filebasename+'_globalerr', saveexts=['pdf', 'png'])
 
     time_end = datetime.datetime.now()
-    print "End time:   " + time_end.strftime("%Y-%m-%d --- %H:%M:%S:%f")
-    print "Elapsed:    " + str((time_end - time_start).seconds) + " seconds"
-    print "------"
+    print("End time:   " + time_end.strftime("%Y-%m-%d --- %H:%M:%S:%f"))
+    print("Elapsed:    " + str((time_end - time_start).seconds) + " seconds")
+    print("------")
 
 if __name__ == "__main__":
-    print "Running analysis phase transition..."
+    print("Running analysis phase transition...")
 
     run_once()
     #run_lambda_vals()
@@ -119,4 +119,4 @@ if __name__ == "__main__":
     #run_lambda_vals_normrow()
 
 
-print "Finished."
+print("Finished.")

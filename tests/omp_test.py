@@ -59,7 +59,7 @@ def runProblemSuite(ambientDimension,numGradations,numTrials, verbose):
     rhoCounter = 0
     for rho in phaseRho:
       if verbose:
-          print(deltaCounter,rhoCounter)
+          print((deltaCounter,rhoCounter))
           
       numMeasurements = int(delta*ambientDimension)
       sparsity = int(rho*numMeasurements)
@@ -108,20 +108,20 @@ def runProblemSuite(ambientDimension,numGradations,numTrials, verbose):
         
         # Nic: compare results
         if verbose:
-            print 'diff1 = ',np.linalg.norm(x_r.squeeze() - x_r2.squeeze())
-            print 'diff2 = ',np.linalg.norm(x_r.squeeze() - x_r3.squeeze())
-            print 'diff3 = ',np.linalg.norm(x_r2.squeeze() - x_r3.squeeze())
-            print "Bob's total time = ", t1all
-            print "Nic's total time = ", t2all
-            print "Skl's total time = ", t3all
+            print(('diff1 = ',np.linalg.norm(x_r.squeeze() - x_r2.squeeze())))
+            print(('diff2 = ',np.linalg.norm(x_r.squeeze() - x_r3.squeeze())))
+            print(('diff3 = ',np.linalg.norm(x_r2.squeeze() - x_r3.squeeze())))
+            print(("Bob's total time = ", t1all))
+            print(("Nic's total time = ", t2all))
+            print(("Skl's total time = ", t3all))
         if np.linalg.norm(x_r.squeeze() - x_r2.squeeze()) > 1e-6 or \
            np.linalg.norm(x_r.squeeze() - x_r3.squeeze()) > 1e-6 or \
            np.linalg.norm(x_r2.squeeze() - x_r3.squeeze()) > 1e-6:
                if verbose:
-                   print "STOP: Different results"
-                   print "Bob's residual: ||y - D x_r ||_2 = ",np.linalg.norm(y.squeeze() - np.dot(D,x_r).squeeze())
-                   print "Nic's residual: ||y - D x_r ||_2 = ",np.linalg.norm(y.squeeze() - np.dot(D,x_r2).squeeze())
-                   print "Skl's residual: ||y - D x_r ||_2 = ",np.linalg.norm(y.squeeze() - np.dot(D,x_r3).squeeze())
+                   print("STOP: Different results")
+                   print(("Bob's residual: ||y - D x_r ||_2 = ",np.linalg.norm(y.squeeze() - np.dot(D,x_r).squeeze())))
+                   print(("Nic's residual: ||y - D x_r ||_2 = ",np.linalg.norm(y.squeeze() - np.dot(D,x_r2).squeeze())))
+                   print(("Skl's residual: ||y - D x_r ||_2 = ",np.linalg.norm(y.squeeze() - np.dot(D,x_r3).squeeze())))
                raise ValueError("Different results")
   
         # debais to remove small entries

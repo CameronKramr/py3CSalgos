@@ -23,7 +23,7 @@ def run_test():
     deltas = numpy.arange(0.1, 1, 0.1)
     rhos = numpy.arange(0.1, 1, 0.1)
 
-    print "Running synthesis phase transition..."
+    print("Running synthesis phase transition...")
     pt = SynthesisPhaseTransition(signal_size, dict_size, deltas, rhos, 3, numpy.inf,
                                   [
                                   #OrthogonalMatchingPursuit(0, algorithm="sparsify_QR"),
@@ -37,7 +37,7 @@ def run_test():
 
     #pt.savedata()
 
-    print "Example finished."
+    print("Example finished.")
 
 def run_synthesis():
     signal_size, dict_size = 50, 100
@@ -48,7 +48,7 @@ def run_synthesis():
     #rhos = numpy.arange(0.1, 0.51, 0.01)
 
 
-    print "Running synthesis phase transition..."
+    print("Running synthesis phase transition...")
     pt = SynthesisPhaseTransition(signal_size, dict_size, deltas, rhos, 30,
                                   [OrthogonalMatchingPursuit(1e-6, algorithm="sparsify_QR"),
                                    L1Min(1e-6),
@@ -59,7 +59,7 @@ def run_synthesis():
     pt.run()
     pt.plot()
 
-    print "Example finished."
+    print("Example finished.")
 
 
 def run_analysis():
@@ -67,7 +67,7 @@ def run_analysis():
     deltas = numpy.arange(0.1, 0.99, 0.1)
     rhos = numpy.arange(0.1, 0.9, 0.1)
 
-    print "Running analysis phase transition..."
+    print("Running analysis phase transition...")
     pt = AnalysisPhaseTransition(signal_size, dict_size, deltas, rhos, 3, numpy.inf,
                                  [AnalysisL1Min(1e-6),
                                   AnalysisBySynthesis(L1Min(1e-6)),
@@ -82,7 +82,7 @@ def run_uap():
     deltas = numpy.arange(0.1, 1, 0.1)
     rhos = numpy.arange(0.1, 1, 0.1)
 
-    print "Running analysis phase transition..."
+    print("Running analysis phase transition...")
     pt = AnalysisPhaseTransition(signal_size, dict_size, deltas, rhos, 3,
                                  [UnconstrainedAnalysisPursuit(1e-6, 1, 1),
                                   GreedyAnalysisPursuit(1e-6)])
@@ -90,7 +90,7 @@ def run_uap():
     pt.plot()
 
 
-    print "Example finished."
+    print("Example finished.")
 
 
 if __name__ == "__main__":

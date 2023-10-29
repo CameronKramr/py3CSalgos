@@ -14,7 +14,7 @@ def main():
 	#for i in np.arange(100):
 		#np.linalg.lstsq(A, b)
 		np.linalg.svd(A)
-	print "Elapsed time = ",(time.time() - starttime)
+	print(("Elapsed time = ",(time.time() - starttime)))
 
 if __name__ == "__main__":
 	main()

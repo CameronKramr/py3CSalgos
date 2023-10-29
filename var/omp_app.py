@@ -45,7 +45,7 @@ def runProblemSuite(ambientDimension,numGradations,numTrials):
   for delta in phaseDelta[:17]:
     rhoCounter = 0
     for rho in phaseRho:
-      print(deltaCounter,rhoCounter)
+      print((deltaCounter,rhoCounter))
       numMeasurements = int(delta*ambientDimension)
       sparsity = int(rho*numMeasurements)
       # how do I set the following to be random each time?
@@ -92,19 +92,19 @@ def runProblemSuite(ambientDimension,numGradations,numTrials):
         t3all = t3all + time.time() - starttime     # stop timer        
         
         # Nic: compare results
-        print 'diff1 = ',np.linalg.norm(x_r.squeeze() - x_r2.squeeze())
-        print 'diff2 = ',np.linalg.norm(x_r.squeeze() - x_r3.squeeze())
-        print 'diff3 = ',np.linalg.norm(x_r2.squeeze() - x_r3.squeeze())
-        print "Bob's total time = ", t1all
-        print "Nic's total time = ", t2all
-        print "Skl's total time = ", t3all
+        print('diff1 = ',np.linalg.norm(x_r.squeeze() - x_r2.squeeze()))
+        print('diff2 = ',np.linalg.norm(x_r.squeeze() - x_r3.squeeze()))
+        print('diff3 = ',np.linalg.norm(x_r2.squeeze() - x_r3.squeeze()))
+        print("Bob's total time = ", t1all)
+        print("Nic's total time = ", t2all)
+        print("Skl's total time = ", t3all)
         if np.linalg.norm(x_r.squeeze() - x_r2.squeeze()) > 1e-10 or \
            np.linalg.norm(x_r.squeeze() - x_r3.squeeze()) > 1e-10 or \
            np.linalg.norm(x_r2.squeeze() - x_r3.squeeze()) > 1e-10:
-            print "STOP: Different results"
-            print "Bob's residual: ||y - D x_r ||_2 = ",np.linalg.norm(y.squeeze() - np.dot(D,x_r).squeeze())
-            print "Nic's residual: ||y - D x_r ||_2 = ",np.linalg.norm(y.squeeze() - np.dot(D,x_r2).squeeze())
-            print "Skl's residual: ||y - D x_r ||_2 = ",np.linalg.norm(y.squeeze() - np.dot(D,x_r3).squeeze())
+            print("STOP: Different results")
+            print("Bob's residual: ||y - D x_r ||_2 = ",np.linalg.norm(y.squeeze() - np.dot(D,x_r).squeeze()))
+            print("Nic's residual: ||y - D x_r ||_2 = ",np.linalg.norm(y.squeeze() - np.dot(D,x_r2).squeeze()))
+            print("Skl's residual: ||y - D x_r ||_2 = ",np.linalg.norm(y.squeeze() - np.dot(D,x_r3).squeeze()))
             raise ValueError("Different results")
   
         # debais to remove small entries
@@ -142,7 +142,7 @@ if __name__ == '__main__':
   #import cProfile
   #cProfile.run('runProblemSuite(ambientDimension,numGradations,numTrials)','profres')  
   runProblemSuite(ambientDimension,numGradations,numTrials) 
-  print "Done"
+  print("Done")
   
   #import pstats
   #p = pstats.Stats('D:\Nic\Dev2\profres')

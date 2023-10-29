@@ -55,9 +55,9 @@ class NESTAresults(unittest.TestCase):
         
         # check if found solution is the same as the correct cslution
         diff = numpy.linalg.norm(xr - Xr[:,i])
-        print "k =",k,"i = ",i
+        print(("k =",k,"i = ",i))
         if diff < 1e-6:
-          print "Recovery OK"
+          print("Recovery OK")
           isOK = True
         else:
           if numpy.linalg.norm(xr,1) < numpy.linalg.norm(Xr[:,i],1):
@@ -67,16 +67,16 @@ class NESTAresults(unittest.TestCase):
             numminus = numminus+1
             summinus = summinus + numpy.linalg.norm(xr,1) - numpy.linalg.norm(Xr[:,i],1)
          
-          print "Oops"
+          print("Oops")
           if (k,i) not in known:
             #isOK = False
-            print "Should stop here"
+            print("Should stop here")
           else:
-            print "Known bad but good"
+            print("Known bad but good")
             isOK = True
         # comment / uncomment this
         self.assertTrue(isOK)
-    print 'Finished test'
+    print('Finished test')
   
 if __name__ == "__main__":
     #import cProfile

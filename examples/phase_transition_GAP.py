@@ -21,7 +21,7 @@ solver = GreedyAnalysisPursuit(1e-10)
 def run_once():
 
     time_start = datetime.datetime.now()
-    print "Start time: " + time_start.strftime("%Y-%m-%d --- %H:%M:%S:%f")
+    print("Start time: " + time_start.strftime("%Y-%m-%d --- %H:%M:%S:%f"))
 
     filebasename = 'save/exact_'+ partname
 
@@ -32,14 +32,14 @@ def run_once():
     pt.plot(thresh=1e-6, show=False, basename=filebasename, saveexts=['pdf', 'png'])
 
     time_end = datetime.datetime.now()
-    print "End time:   " + time_end.strftime("%Y-%m-%d --- %H:%M:%S:%f")
-    print "Elapsed:    " + str((time_end - time_start).seconds) + " seconds"
-    print "------"
+    print("End time:   " + time_end.strftime("%Y-%m-%d --- %H:%M:%S:%f"))
+    print("Elapsed:    " + str((time_end - time_start).seconds) + " seconds")
+    print("------")
 
 
 if __name__ == "__main__":
-    print "Running analysis phase transition..."
+    print("Running analysis phase transition...")
 
     run_once()
 
-    print "Finished."
+    print("Finished.")

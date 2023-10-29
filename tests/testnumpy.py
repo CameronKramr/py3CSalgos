@@ -63,19 +63,19 @@ tests = {test_eigenvalue : (752., 3376.),
 THREADS_LIMIT_ENV = 'OMP_NUM_THREADS'
 
 def start_benchmark():
-    print """Benchmark is made against EPD 6.0,NumPy 1.4 with MKL and EPD 5.1, NumPy 1.3 with ATLAS
+    print("""Benchmark is made against EPD 6.0,NumPy 1.4 with MKL and EPD 5.1, NumPy 1.3 with ATLAS
 on a Thinkpad T60 with Intel CoreDuo 2Ghz CPU on Windows Vista 32 bit
-    """
-    if os.environ.has_key(THREADS_LIMIT_ENV):
-        print "Maximum number of threads used for computation is : %s" % os.environ[THREADS_LIMIT_ENV]
-    print ("-" * 80)
-    print "Starting timing with numpy %s\nVersion: %s" % (numpy.__version__, sys.version)
-    print "%20s : %10s - %5s / %5s" % ("Function", "Timing [ms]", "MKL", "No MKL")
-    for fun, bench in tests.items():
+    """)
+    if THREADS_LIMIT_ENV in os.environ:
+        print(("Maximum number of threads used for computation is : %s" % os.environ[THREADS_LIMIT_ENV]))
+    print(("-" * 80))
+    print(("Starting timing with numpy %s\nVersion: %s" % (numpy.__version__, sys.version)))
+    print(("%20s : %10s - %5s / %5s" % ("Function", "Timing [ms]", "MKL", "No MKL")))
+    for fun, bench in list(tests.items()):
         t = timeit.Timer(stmt="%s()" % fun.__name__, setup="from __main__ import %s" % fun.__name__)
         res = t.repeat(repeat=3, number=1)
         timing =  1000.0 * sum(res)/len(res)
-        print "%20s : %7.1f ms -  %3.2f / %3.2f" % (fun.__name__, timing, bench[0]/timing, bench[1]/timing)
+        print(("%20s : %7.1f ms -  %3.2f / %3.2f" % (fun.__name__, timing, bench[0]/timing, bench[1]/timing)))
 
 if __name__ == '__main__':
     start_benchmark()

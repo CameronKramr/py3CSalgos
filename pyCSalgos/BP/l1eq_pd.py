@@ -350,7 +350,7 @@ def l1eq_pd(x0, A, At, b, pdtol=1e-3, pdmaxiter=50, cgtol=1e-8, cgmaxiter=200, v
         #opts.POSDEF = true; opts.SYM = true;
         #[dv,hcond] = linsolve(H11p, w1p, opts);
         try:
-          dv = scipy.linalg.solve(H11p, w1p, sym_pos=True)
+          dv = scipy.linalg.solve(H11p, w1p, assume_a='pos')
           hcond = 1.0/numpy.linalg.cond(H11p)
         except scipy.linalg.LinAlgError:
             if verbose:

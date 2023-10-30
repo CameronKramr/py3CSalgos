@@ -261,7 +261,7 @@ def l1eq_pd(x0, A, At, b, pdtol=1e-3, pdmaxiter=50, cgtol=1e-8, cgmaxiter=200, v
         #end
         #x0 = A'*w;
         try:
-            w = scipy.linalg.solve(numpy.dot(A,A.T), b, sym_pos=True)
+            w = scipy.linalg.solve(numpy.dot(A,A.T), b, assume_a='pos')
             hcond = 1.0/numpy.linalg.cond(numpy.dot(A,A.T))
         except scipy.linalg.LinAlgError:
             if verbose:
